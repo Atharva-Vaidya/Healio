@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healio - Healthcare Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="back-to-home">
+                <a href="home.html" class="back-link">← Back to Home</a>
+            </div>
+            
+            <div class="logo">
+                <h1>🏥 Healio</h1>
+                <p>Healthcare Records & Claims Platform</p>
+            </div>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" required placeholder="Enter your email">
+                </div>
+                
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="password" required placeholder="Enter password">
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            
+            <div class="demo-credentials">
+                <h3>Demo Credentials</h3>
+                <div class="credential-card" onclick="fillCredentials('employee@company.com', 'demo123')">
+                    <strong>👤 Employee</strong>
+                    <span>employee@company.com</span>
+                </div>
+                <div class="credential-card" onclick="fillCredentials('hospital@medical.com', 'demo123')">
+                    <strong>🏥 Hospital</strong>
+                    <span>hospital@medical.com</span>
+                </div>
+                <div class="credential-card" onclick="fillCredentials('corporate@company.com', 'demo123')">
+                    <strong>💼 Corporate Admin</strong>
+                    <span>corporate@company.com</span>
+                </div>
+                <p class="password-hint">Password: demo123</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

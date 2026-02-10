@@ -3,54 +3,361 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Healio - Healthcare Platform</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Healio - Unified Digital Healthcare Claims Platform</title>
+    <link rel="stylesheet" href="home-styles.css">
 </head>
 <body>
-    <div class="login-container">
-        <div class="login-card">
-            <div class="back-to-home">
-                <a href="home.html" class="back-link">← Back to Home</a>
+    <!-- Navigation Bar -->
+    <nav class="navbar-home">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">🏥</span>
+                <span class="logo-text">Healio</span>
             </div>
-            
-            <div class="logo">
-                <h1>🏥 Healio</h1>
-                <p>Healthcare Records & Claims Platform</p>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+                <li class="nav-dropdown">
+                    <a href="#" class="nav-link login-btn">Login ▾</a>
+                    <div class="dropdown-content">
+                        <a href="index.html">👤 Employee Login</a>
+                        <a href="index.html">🏥 Hospital Login</a>
+                        <a href="index.html">💼 Corporate Admin</a>
+                    </div>
+                </li>
+            </ul>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">🚀 MVP Platform for Corporate Healthcare</div>
+                <h1 class="hero-title">Unified Digital & Cashless Healthcare Claims Platform</h1>
+                <p class="hero-subtitle">Healio simplifies corporate healthcare with secure records, instant claims, and fraud-resistant processing.</p>
+                <div class="hero-cta">
+                    <a href="index.html" class="btn btn-primary-hero">
+                        <span class="btn-icon">📋</span>
+                        Submit a Claim
+                    </a>
+                    <a href="index.html" class="btn btn-secondary-hero">
+                        <span class="btn-icon">🏥</span>
+                        Access Patient Records
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Fraud Prevention</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3 min</div>
+                        <div class="stat-label">Claim Processing</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">99.6%</div>
+                        <div class="stat-label">Time Reduction</div>
+                    </div>
+                </div>
             </div>
-            
-            <form id="loginForm">
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" id="email" required placeholder="Enter your email">
+            <div class="hero-visual">
+                <div class="hero-card card-1">
+                    <div class="card-icon">📊</div>
+                    <div class="card-text">Real-time Analytics</div>
                 </div>
-                
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" id="password" required placeholder="Enter password">
+                <div class="hero-card card-2">
+                    <div class="card-icon">🛡️</div>
+                    <div class="card-text">Fraud Detection</div>
                 </div>
-                
-                <button type="submit" class="btn btn-primary">Login</button>
-            </form>
-            
-            <div class="demo-credentials">
-                <h3>Demo Credentials</h3>
-                <div class="credential-card" onclick="fillCredentials('employee@company.com', 'demo123')">
-                    <strong>👤 Employee</strong>
-                    <span>employee@company.com</span>
+                <div class="hero-card card-3">
+                    <div class="card-icon">⚡</div>
+                    <div class="card-text">Instant Approval</div>
                 </div>
-                <div class="credential-card" onclick="fillCredentials('hospital@medical.com', 'demo123')">
-                    <strong>🏥 Hospital</strong>
-                    <span>hospital@medical.com</span>
+                <div class="hero-illustration">
+                    <div class="illustration-circle"></div>
+                    <div class="illustration-icon">🏥</div>
                 </div>
-                <div class="credential-card" onclick="fillCredentials('corporate@company.com', 'demo123')">
-                    <strong>💼 Corporate Admin</strong>
-                    <span>corporate@company.com</span>
-                </div>
-                <p class="password-hint">Password: demo123</p>
             </div>
         </div>
-    </div>
+    </section>
 
-    <script src="app.js"></script>
+    <!-- Problem → Solution Section -->
+    <section class="problem-solution">
+        <div class="container">
+            <h2 class="section-title">Transforming Healthcare Claims</h2>
+            <p class="section-subtitle">From manual chaos to digital clarity</p>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card problem-card">
+                    <div class="card-header">
+                        <span class="card-icon-large">❌</span>
+                        <h3>Traditional Problems</h3>
+                    </div>
+                    <ul class="problem-list">
+                        <li>
+                            <span class="list-icon">📄</span>
+                            <div>
+                                <strong>Manual Claim Submissions</strong>
+                                <p>Paper-based workflows taking 10-14 days</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="list-icon">🗂️</span>
+                            <div>
+                                <strong>Fragmented Medical Records</strong>
+                                <p>Records scattered across hospitals and files</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="list-icon">💸</span>
+                            <div>
+                                <strong>Fake / Inflated Bills</strong>
+                                <p>15-20% error rate due to manual verification</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="arrow-divider">
+                    <div class="arrow">→</div>
+                </div>
+
+                <div class="comparison-card solution-card">
+                    <div class="card-header">
+                        <span class="card-icon-large">✅</span>
+                        <h3>Healio Solutions</h3>
+                    </div>
+                    <ul class="solution-list">
+                        <li>
+                            <span class="list-icon">⚡</span>
+                            <div>
+                                <strong>Digital Cashless Processing</strong>
+                                <p>Claims processed in 3 minutes end-to-end</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="list-icon">💼</span>
+                            <div>
+                                <strong>Unified Health Record Wallet</strong>
+                                <p>All records in one secure digital platform</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="list-icon">🛡️</span>
+                            <div>
+                                <strong>Verified Hospital Billing</strong>
+                                <p>100% fraud prevention through record linkage</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Key Features</h2>
+            <p class="section-subtitle">Everything you need for seamless healthcare claims</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <h3>Health Record Wallet</h3>
+                    <p>Store all medical records, prescriptions, and bills in one secure digital wallet</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Cashless Claims</h3>
+                    <p>Submit claims linked to hospital-verified records with auto-filled amounts</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Employer Dashboard</h3>
+                    <p>Real-time analytics, claim management, and one-click approval system</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🏥</div>
+                    <h3>Hospital Verification</h3>
+                    <p>Hospitals upload verified bills creating fraud-resistant audit trail</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Ecosystem Section -->
+    <section class="ecosystem" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Connected Healthcare Ecosystem</h2>
+            <p class="section-subtitle">Seamless integration across all stakeholders</p>
+            
+            <div class="ecosystem-flow">
+                <div class="ecosystem-card">
+                    <div class="ecosystem-icon">💼</div>
+                    <h3>Corporates</h3>
+                    <p>Manage employee health plans and approve claims</p>
+                    <div class="ecosystem-badge">Policy Providers</div>
+                </div>
+                
+                <div class="flow-arrow">→</div>
+                
+                <div class="ecosystem-card">
+                    <div class="ecosystem-icon">👥</div>
+                    <h3>Employees</h3>
+                    <p>Access records and submit verified claims</p>
+                    <div class="ecosystem-badge">Beneficiaries</div>
+                </div>
+                
+                <div class="flow-arrow">→</div>
+                
+                <div class="ecosystem-card">
+                    <div class="ecosystem-icon">🏥</div>
+                    <h3>Hospitals</h3>
+                    <p>Upload treatment records and verified bills</p>
+                    <div class="ecosystem-badge">Service Providers</div>
+                </div>
+                
+                <div class="flow-arrow">→</div>
+                
+                <div class="ecosystem-card">
+                    <div class="ecosystem-icon">💊</div>
+                    <h3>Pharmacies</h3>
+                    <p>Process prescriptions and medication claims</p>
+                    <div class="ecosystem-badge">Medicine Partners</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Dashboard Preview -->
+    <section class="dashboard-preview">
+        <div class="container">
+            <h2 class="section-title">Live Dashboard Preview</h2>
+            <p class="section-subtitle">Real-time insights at your fingertips</p>
+            
+            <div class="dashboard-mock">
+                <div class="dashboard-header">
+                    <div class="dashboard-title">
+                        <span class="dashboard-icon">📊</span>
+                        Corporate Admin Dashboard
+                    </div>
+                    <div class="dashboard-date">February 2026</div>
+                </div>
+                
+                <div class="dashboard-stats">
+                    <div class="dashboard-card stat-card-1">
+                        <div class="stat-icon-dash">📋</div>
+                        <div class="stat-content">
+                            <div class="stat-value">247</div>
+                            <div class="stat-label">Claims Submitted</div>
+                            <div class="stat-trend positive">↑ 12% this month</div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card stat-card-2">
+                        <div class="stat-icon-dash">✅</div>
+                        <div class="stat-content">
+                            <div class="stat-value">189</div>
+                            <div class="stat-label">Claims Approved</div>
+                            <div class="stat-trend positive">↑ 8% this month</div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card stat-card-3">
+                        <div class="stat-icon-dash">⏳</div>
+                        <div class="stat-content">
+                            <div class="stat-value">42</div>
+                            <div class="stat-label">Pending Requests</div>
+                            <div class="stat-trend neutral">Review needed</div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card stat-card-4">
+                        <div class="stat-icon-dash">🏥</div>
+                        <div class="stat-content">
+                            <div class="stat-value">15</div>
+                            <div class="stat-label">Linked Hospitals</div>
+                            <div class="stat-trend positive">↑ 2 new partners</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-actions">
+                    <a href="index.html" class="btn btn-dashboard">View Full Dashboard →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Healthcare Claims?</h2>
+                <p>Join the digital healthcare revolution with Healio</p>
+                <div class="cta-buttons">
+                    <a href="index.html" class="btn btn-cta-primary">Get Started Now</a>
+                    <a href="#features" class="btn btn-cta-secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <span class="logo-icon">🏥</span>
+                        <span class="logo-text">Healio</span>
+                    </div>
+                    <p class="footer-desc">Unified digital healthcare claims platform for corporates, employees, and hospitals.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>About Healio</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="PITCH.md">Our Vision</a></li>
+                        <li><a href="FRAUD_PREVENTION.md">Security</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Employee Portal</a></li>
+                        <li><a href="index.html">Hospital Interface</a></li>
+                        <li><a href="index.html">Corporate Dashboard</a></li>
+                        <li><a href="README.md">Documentation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Team Optimizers</h4>
+                    <ul>
+                        <li>WCE Ideathon 2026</li>
+                        <li>Contact: team@healio.com</li>
+                        <li>Built with ❤️ for healthcare</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Healio by Team Optimizers. Built for WCE Ideathon.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="home.js"></script>
 </body>
 </html>
