@@ -1,0 +1,12 @@
+{
+  "name": "healio",
+  "version": "1.0.0",
+  "description": "Healthcare Records & Claims Management Platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["healthcare", "medical-records", "claims", "insurance"],
+  "author": "",
+  "license": "MIT"
+}

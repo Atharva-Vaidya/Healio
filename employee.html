@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard - Healio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">🏥 Healio</div>
+        <div class="nav-user">
+            <span id="userName"></span>
+            <button onclick="logout()" class="btn btn-secondary">Logout</button>
+        </div>
+    </nav>
+
+    <div class="dashboard">
+        <div class="sidebar">
+            <button class="tab-btn active" onclick="showTab('records')">📋 Medical Records</button>
+            <button class="tab-btn" onclick="showTab('claims')">💰 My Claims</button>
+            <button class="tab-btn" onclick="showTab('submit')">➕ Submit Claim</button>
+        </div>
+
+        <div class="content">
+            <!-- Medical Records Tab -->
+            <div id="recordsTab" class="tab-content active">
+                <div class="content-header">
+                    <h2>Medical Records</h2>
+                    <button onclick="showUploadModal()" class="btn btn-primary">+ Upload Record</button>
+                </div>
+                
+                <div id="recordsList" class="timeline"></div>
+            </div>
+
+            <!-- Claims Tab -->
+            <div id="claimsTab" class="tab-content">
+                <div class="content-header">
+                    <h2>My Claims</h2>
+                </div>
+                
+                <div id="claimsList" class="claims-grid"></div>
+            </div>
+
+            <!-- Submit Claim Tab -->
+            <div id="submitTab" class="tab-content">
+                <div class="content-header">
+                    <h2>Submit New Claim</h2>
+                </div>
+                
+                <div class="info-banner">
+                    <span class="info-icon">ℹ️</span>
+                    <p>Claims can only be submitted for hospital-verified treatment records. Only claimable records are shown below.</p>
+                </div>
+                
+                <form id="claimForm" class="form-card">
+                    <div class="form-group">
+                        <label>Select Treatment Record <span class="required">*</span></label>
+                        <select id="recordSelect" required>
+                            <option value="">Choose a hospital treatment record...</option>
+                        </select>
+                        <small class="help-text">Only unclaimed hospital records with verified bills are shown</small>
+                    </div>
+                    
+                    <!-- Inline message for already claimed records -->
+                    <div id="claimExistsMessage" class="inline-message warning-message" style="display: none;">
+                        <div class="message-icon">⚠️</div>
+                        <div class="message-content">
+                            <strong>Claim Already Exists</strong>
+                            <p>This treatment record already has a claim submitted. You can view its status in your claims list.</p>
+                        </div>
+                        <button type="button" onclick="showTab('claims')" class="btn-link">Go to My Claims →</button>
+                    </div>
+                    
+                    <!-- No claimable records message -->
+                    <div id="noRecordsMessage" class="inline-message info-message" style="display: none;">
+                        <div class="message-icon">📋</div>
+                        <div class="message-content">
+                            <strong>No Claimable Records Available</strong>
+                            <p>All your hospital treatment records have been claimed, or no records with bills are available yet.</p>
+                        </div>
+                        <button type="button" onclick="showTab('records')" class="btn-link">View Medical Records →</button>
+                    </div>
+                    
+                    <div id="recordDetails" class="record-details-card" style="display: none;">
+                        <h4>✓ Verified Treatment Details</h4>
+                        <div class="detail-row">
+                            <span class="detail-label">Hospital:</span>
+                            <span id="detailHospital" class="detail-value"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Treatment Type:</span>
+                            <span id="detailType" class="detail-value"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Date:</span>
+                            <span id="detailDate" class="detail-value"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Treatment Details:</span>
+                            <span id="detailTreatment" class="detail-value"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Bill File:</span>
+                            <span id="detailFile" class="detail-value"></span>
+                        </div>
+                        <div class="verification-badge">
+                            <span class="badge-icon">🛡️</span>
+                            <span>Hospital-Verified Billing</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Claim Amount (₹) <span class="required">*</span></label>
+                        <div class="amount-field-wrapper">
+                            <input type="number" id="claimAmount" required placeholder="Auto-filled from hospital bill" readonly>
+                            <span class="lock-icon">🔒</span>
+                        </div>
+                        <small class="help-text verified-text">
+                            <span class="verified-icon">✓</span>
+                            Verified hospital billing — cannot be edited
+                        </small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Additional Notes (Optional)</label>
+                        <textarea id="claimDescription" rows="3" placeholder="Add any additional information about this claim..."></textarea>
+                    </div>
+                    
+                    <button type="submit" id="submitClaimBtn" class="btn btn-primary">
+                        <span class="btn-icon">📤</span>
+                        Submit Claim for Review
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upload Record Modal -->
+    <div id="uploadModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Upload Medical Record</h3>
+                <span class="close" onclick="closeUploadModal()">&times;</span>
+            </div>
+            <form id="uploadForm">
+                <div class="form-group">
+                    <label>Record Type</label>
+                    <select id="recordType" required>
+                        <option value="prescription">Prescription</option>
+                        <option value="lab-report">Lab Report</option>
+                        <option value="discharge-summary">Discharge Summary</option>
+                        <option value="consultation">Consultation Notes</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Description</label>
+                    <input type="text" id="recordDescription" required placeholder="Brief description">
+                </div>
+                
+                <div class="form-group">
+                    <label>Upload File</label>
+                    <input type="file" id="recordFile" accept=".pdf,.jpg,.png">
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Upload</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="employee.js"></script>
+</body>
+</html>
