@@ -27,18 +27,23 @@ Healio is a lightweight, demo-ready web platform that demonstrates how corporate
 - Detailed claim review with **hospital verification badge**
 - **Fraud Detection**: See complete treatment details and bill linkage
 
-## Quick Start
+## 🚀 Quick Start
 
-### Prerequisites
-- Node.js (v14 or higher)
-
-### Installation & Run
+### For Local Development
 ```bash
-# Start the server
+# Option 1: Use Node.js server (optional)
 node server.js
 ```
 
-Then open your browser to: **http://localhost:3000**
+### For Static Deployment (Vercel, Netlify, GitHub Pages)
+No server needed! Just deploy the HTML files directly.
+
+The platform now works completely client-side using:
+- LocalStorage for data persistence
+- Client-side authentication
+- Demo user credentials
+
+Then open your browser to: **http://localhost:3000** (with server) or open `home.html` directly (static)
 
 You'll see the Healio landing page with:
 - Clear value proposition
@@ -48,13 +53,23 @@ You'll see the Healio landing page with:
 - Live dashboard preview
 - Quick access to all user portals
 
+### 🔐 Demo Credentials (Static Mode)
+
+| Role | Email | Password |
+|------|-------|----------|
+| **Employee** | employee@healio.com | demo123 |
+| **Hospital** | hospital@healio.com | demo123 |
+| **Corporate Admin** | admin@healio.com | demo123 |
+
 ## 🔐 Demo Credentials
 
 | Role | Email | Password |
 |------|-------|----------|
-| **Employee** | employee@company.com | demo123 |
-| **Hospital** | hospital@medical.com | demo123 |
-| **Corporate Admin** | corporate@company.com | demo123 |
+| **Employee** | employee@healio.com | demo123 |
+| **Hospital** | hospital@healio.com | demo123 |
+| **Corporate Admin** | admin@healio.com | demo123 |
+
+**Note**: The platform now works in static mode (no backend required) using localStorage for data persistence. Perfect for Vercel, Netlify, or GitHub Pages deployment!
 
 ## 📊 Demo Workflow
 
